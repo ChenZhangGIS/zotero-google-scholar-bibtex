@@ -1165,7 +1165,8 @@ var citeKeyConversions = {
 	},
 	"t": function (flags, item) {
 		if (item["title"]) {
-			return item["title"].toLowerCase().replace(citeKeyTitleBannedRe, "").split(/\s+/g)[0];
+			// Split dash and colon of the title (updated by Chen Zhang on 3/14/19 National Pi Day)
+			return item["title"].toLowerCase().replace(citeKeyTitleBannedRe, "").split(/\s+/g)[0].split('-')[0].split(':')[0];
 		}
 		return "notitle";
 	},
